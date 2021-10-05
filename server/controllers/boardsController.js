@@ -14,7 +14,7 @@ const getBoards = (req, res, next) => {
 
 const getBoard = (req, res, next) => {
   const boardId = req.params.id
-  Board.findOne({ _id: boardId }, "title _id lists")
+  Board.findById(boardId, "title _id lists")
   .populate('lists')
   .then((board) => {
     if (board) {

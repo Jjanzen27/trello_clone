@@ -17,7 +17,11 @@ const getBoard = (req, res, next) => {
   Board.findOne({ _id: boardId }, "title _id lists")
   .populate('lists')
   .then((board) => {
-    res.json({board});
+    if (board) {
+      res.json({board});
+    } else {
+      res.status(404).end()
+    }
   })
 }
 

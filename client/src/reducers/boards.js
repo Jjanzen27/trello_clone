@@ -16,6 +16,3 @@ export default function boards(state = [], action) {
       return state;
   }
 }
-
-// will need to handle fetch cards success and fetch list
-// success in their own files

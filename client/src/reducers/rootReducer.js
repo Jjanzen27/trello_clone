@@ -1,7 +1,7 @@
 import { combineReducers } from "redux";
 import boards from "./boards";
-import board from "./board";
+//will need list and card
 
-const rootReducer = combineReducers({ boards, board });
+const rootReducer = combineReducers({ boards });
 
 export default rootReducer;

@@ -7,7 +7,15 @@ export default function boards(state = [], action) {
       const newBoard = action.board;
       return state.concat(newBoard);
     }
+    case "FETCH_BOARD_SUCCESS": {
+      const { lists, ...boardWithoutLists } = action.board;
+      console.log("boards", boardWithoutLists)
+      return [boardWithoutLists];
+    }
     default:
       return state;
   }
 }
+
+// will need to handle fetch cards success and fetch list
+// success in their own files

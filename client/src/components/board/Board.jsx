@@ -17,7 +17,7 @@ const Board =() => {
         dispatch(fetchBoard(id))
     }, [dispatch, id, fetchBoard]);
 
-    return (
+    if (board) { return (
       <>
         <Header title={board.title}/>
         <ListContainer />
@@ -108,7 +108,9 @@ const Board =() => {
         <div id="modal-container"></div>
         <div id="dropdown-container"></div>
       </>
-    )
+    ) } else {
+      return null;
+    }
 }
 
 export default Board;

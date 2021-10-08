@@ -3,7 +3,7 @@ import { useSelector } from 'react-redux'
 
 const ListContainer = () => {
   const lists = useSelector(state => state.lists)
-  const cards = useSelector(state => state.cards)
+
   console.log("Lists: ", lists)
   return (
     <main>
@@ -11,13 +11,7 @@ const ListContainer = () => {
         <div id="existing-lists" className="existing-lists">
           {lists.map(list => {
             return (
-              <List list={list}
-              cards={cards.filter(card => {
-                console.log("card: ", card)
-                console.log("card.list_id: ", card.list_id)
-                console.log("list._id: ", list._id)
-                return card === list._id
-              })} />
+              <List list={list} key={list._id}/>
             )
           })}
         </div>

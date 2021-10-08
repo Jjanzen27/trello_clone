@@ -1,6 +1,10 @@
 import Card from "./Card"
+import { useSelector } from 'react-redux'
 
-const List = ({ list, cards }) => {
+const List = ({ list }) => {
+  const allCards = useSelector(state => state.cards)
+  const listCards = allCards.filter(c => c.listId === list._id)
+  console.log(allCards, list)
   return (
     <div className="list-wrapper add-dropdown-active">
       <div className="list-background">
@@ -23,7 +27,7 @@ const List = ({ list, cards }) => {
             </div>
           </div>
           <div id="cards-container" data-id="list-2-cards">
-            {cards.map(c => <Card card={c} />)}
+            {listCards.map(c => <Card card={c} />)}
           </div>
           <div className="add-dropdown add-bottom active-card">
             { // toggle active-card class when adding new card functionality

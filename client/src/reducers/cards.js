@@ -7,10 +7,11 @@ export default function cards(state = [], action) {
                 const { cards } = list;
                 allCards = allCards.concat(cards);
             })
+            console.log("allCards in reducer: ", allCards)
             return allCards;
         }
         default:
             return state;
-    
+
     }
 }

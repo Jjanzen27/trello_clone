@@ -15,8 +15,7 @@ const getBoards = (req, res, next) => {
 const getBoard = (req, res, next) => {
   const boardId = req.params.id
   Board.findById(boardId, "title _id lists")
-  .populate('lists')
-  .populate({path:'cards'})
+  .populate({path: 'lists', populate: { path: 'cards' }})
   .then((board) => {
     if (board) {
       res.json({board});

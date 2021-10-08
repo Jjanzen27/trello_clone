@@ -6,7 +6,6 @@ export default function lists(state = [], action) {
                 let { cards, ...listWithoutCards } = list
                 return listWithoutCards
             })
-            console.log("returnValue:", returnValue)
             return returnValue
         }
         default:

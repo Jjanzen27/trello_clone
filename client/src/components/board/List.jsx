@@ -4,7 +4,7 @@ import { useSelector } from 'react-redux'
 const List = ({ list }) => {
   const allCards = useSelector(state => state.cards)
   const listCards = allCards.filter(c => c.listId === list._id)
-  console.log(allCards, list)
+  console.log("current state cards/list", allCards, list)
   return (
     <div className="list-wrapper add-dropdown-active">
       <div className="list-background">

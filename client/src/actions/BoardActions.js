@@ -22,8 +22,15 @@ export function fetchBoardRequest() {
 }
 
 export function fetchBoardSuccess(board) {
-  console.log(board);
   return { type: types.FETCH_BOARD_SUCCESS, board };
+}
+
+export function createListRequest() {
+  return { type: types.CREATE_LIST_REQUEST };
+}
+
+export function createListSuccess() {
+  return { type: types.CREATE_LIST_SUCCESS, list: list };
 }
 
 export function fetchBoards() {
@@ -50,4 +57,17 @@ export function fetchBoard(id) {
   return function(dispatch) {
     apiClient.getBoard(id, data => dispatch(fetchBoardSuccess(data.board)));
   };
+}
+
+export function createList(list, callback) {
+  return function(dispatch) {
+    dispatch(createListRequest());
+    apiClient.createList(list, data => {
+      dispatch(createListSuccess(data.list));
+
+      if (callback) {
+        callback(data.list);
+      }
+    })
+  }
 }

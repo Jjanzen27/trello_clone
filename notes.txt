@@ -1,0 +1,11 @@
+TODO: Add lists to server
+Also have to add the new list to its board
+3 middleware
+
+
+router.post(
+  "/lists",
+  listControllers.createList,
+  boardController.addListToBoard,
+  listControllers.sendList
+);

@@ -8,7 +8,6 @@ import { fetchBoard } from "../../actions/BoardActions";
 const Board =() => {
     const id = useParams().id;
     const boards = useSelector(state => state.boards)
-    const lists = useSelector(state => state.lists)
     const board = boards.find(b => b._id === id)
 
     const dispatch = useDispatch();

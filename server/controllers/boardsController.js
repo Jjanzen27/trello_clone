@@ -43,6 +43,18 @@ const createBoard = (req, res, next) => {
   }
 };
 
+// addListToBoard function should look something like this:
+
+// const addListToBoard = (req, res, next) => {
+//   const list = req.list;
+//   const boardId = req.body.boardId;
+//   Board.findByIdAndUpdate(boardId, {
+//     $addToSet: { lists: list._id }, // adds list to the lists array in board
+//   }).then(() => {
+//     next();
+//   });
+// };
+
 exports.getBoards = getBoards;
 exports.getBoard = getBoard;
 exports.createBoard = createBoard;
